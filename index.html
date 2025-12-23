@@ -11,128 +11,7 @@
       <div class="container">
         <div class="simulation-container">
           <h1 class="title">Simulation - Ladder Snake</h1>
-          <div class="board">
-            <div class="row">
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-            </div>
-            <div class="row">
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-            </div>
-            <div class="row">
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-            </div>
-            <div class="row">
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-            </div>
-            <div class="row">
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-            </div>
-            <div class="row">
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-            </div>
-            <div class="row">
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-            </div>
-            <div class="row">
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-            </div>
-            <div class="row">
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-            </div>
-            <div class="row">
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-              <div class="cell"></div>
-            </div>
-          </div>
+          <div class="board" id="board"></div>
         </div>
         <div class="sidebar">
           <h2 class="control-title">Control Panel</h2>
@@ -142,11 +21,25 @@
           <div class="inputs">
             <div class="input-group">
               <label>Panjang Board (Box)</label>
-              <div class="input-field">Default: 10</div>
+              <input
+                type="number"
+                id="input-panjang"
+                class="input-field"
+                value="10"
+                min="1"
+                max="20"
+              />
             </div>
             <div class="input-group">
               <label>Lebar Board (Box)</label>
-              <div class="input-field">Default: 10</div>
+              <input
+                type="number"
+                id="input-lebar"
+                class="input-field"
+                value="10"
+                min="1"
+                max="20"
+              />
             </div>
           </div>
           <div class="buttons-run">
@@ -155,6 +48,9 @@
             </button>
             <button class="btn-recursive" id="run-recursive">
               Run Recursive
+            </button>
+            <button class="btn-visualize" id="start-visualization">
+              Start Visualization
             </button>
           </div>
           <div id="results" class="results"></div>
