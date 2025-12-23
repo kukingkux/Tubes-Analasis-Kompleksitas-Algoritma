@@ -1,8 +1,6 @@
-let boardRows = 10;
-let boardCols = 10;
-let BOARD_SIZE = 100;
+const BOARD_SIZE = 100;
 
-const snakeLadderMap = {
+let snakeLadderMap = {
   4: 14,
   9: 31,
   17: 7,
@@ -69,28 +67,25 @@ document
   .getElementById("start-visualization")
   .addEventListener("click", startVisualization);
 
-document
-  .getElementById("input-panjang")
-  .addEventListener("input", updateBoardSize);
-document
-  .getElementById("input-lebar")
-  .addEventListener("input", updateBoardSize);
-
-function updateBoardSize() {
-  boardRows = parseInt(document.getElementById("input-panjang").value) || 10;
-  boardCols = parseInt(document.getElementById("input-lebar").value) || 10;
-  BOARD_SIZE = boardRows * boardCols;
-  renderBoard();
-}
-
 function randomizeObstacles() {
-  snakeLadderMap = {};
-  for (let i = 0; i < Math.min(10, BOARD_SIZE - 1); i++) {
-    let start = Math.floor(Math.random() * (BOARD_SIZE - 1)) + 2;
-    let end = Math.floor(Math.random() * (BOARD_SIZE - 1)) + 2;
-    snakeLadderMap[start] = end;
+  const positions = [4, 9, 17, 20, 28, 40, 51, 54, 62, 64, 71, 87, 93, 95, 99];
+  // Shuffle the positions
+  for (let i = positions.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [positions[i], positions[j]] = [positions[j], positions[i]];
   }
-  document.getElementById("results").innerText = "Obstacles randomized.";
+  // First 8 as snakes, last 7 as ladders
+  for (let i = 0; i < 8; i++) {
+    let pos = positions[i];
+    let end = Math.floor(Math.random() * (pos - 1)) + 1; // 1 to pos-1
+    snakeLadderMap[pos] = end;
+  }
+  for (let i = 8; i < 15; i++) {
+    let pos = positions[i];
+    let end = Math.floor(Math.random() * (99 - pos)) + pos + 1; // pos+1 to 99
+    snakeLadderMap[pos] = end;
+  }
+  document.getElementById("randomize").innerText = "Obstacles randomized.";
   renderBoard();
 }
 
@@ -124,21 +119,21 @@ function renderBoard() {
   board.style.width = "800px";
   board.style.height = "800px";
 
-  const cellWidth = 800 / boardCols;
-  const cellHeight = 800 / boardRows;
+  const cellWidth = 80;
+  const cellHeight = 80;
 
-  for (let row = boardRows; row >= 1; row--) {
+  for (let row = 10; row >= 1; row--) {
     const rowDiv = document.createElement("div");
     rowDiv.className = "row";
 
-    for (let col = 1; col <= boardCols; col++) {
+    for (let col = 1; col <= 10; col++) {
       let num;
       if (row % 2 === 1) {
         // odd row, left to right
-        num = (row - 1) * boardCols + col;
+        num = (row - 1) * 10 + col;
       } else {
         // even row, right to left
-        num = (row - 1) * boardCols + (boardCols - col + 1);
+        num = (row - 1) * 10 + (10 - col + 1);
       }
 
       const cell = document.createElement("div");
