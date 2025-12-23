@@ -146,7 +146,11 @@ function renderBoard() {
       // checkerboard
       let isGray =
         (row % 2 === 1 && col % 2 === 1) || (row % 2 === 0 && col % 2 === 0);
-      cell.style.background = isGray ? "#d9d9d9" : "#3594ac";
+      const baseBg = isGray ? "#d9d9d9" : "#3594ac";
+      cell.style.background = baseBg;
+      // store original background and text color so we can restore them later
+      cell.dataset.origBg = baseBg;
+      cell.dataset.origColor = "#000000";
 
       // ladders green
       if (snakeLadderMap[num] && snakeLadderMap[num] > num) {
@@ -168,15 +172,18 @@ function renderBoard() {
 function updatePlayer(position) {
   document.querySelectorAll(".player").forEach((c) => {
     c.classList.remove("player");
-    c.style.background = ""; // reset
-    c.style.color = "black";
+    // restore stored original styles so layout/colors remain consistent
+    if (c.dataset.origBg) c.style.background = c.dataset.origBg;
+    else c.style.removeProperty("background");
+    if (c.dataset.origColor) c.style.color = c.dataset.origColor;
+    else c.style.removeProperty("color");
   });
 
   const cell = document.getElementById(`cell-${position}`);
   if (cell) {
     cell.classList.add("player");
-    cell.style.background = "#f1f1f1";
-    cell.style.color = "black";
+    cell.style.background = "#ffffff";
+    cell.style.color = "#1f1f1f";
   }
 }
 
