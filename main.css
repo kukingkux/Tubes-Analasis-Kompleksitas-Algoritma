@@ -46,8 +46,6 @@ body {
   position: absolute;
   left: 171px;
   top: 137px;
-  width: 800px;
-  height: 800px;
   background: #575757;
   display: flex;
   flex-direction: column;
@@ -58,8 +56,6 @@ body {
 }
 
 .cell {
-  width: 80px;
-  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;

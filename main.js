@@ -121,8 +121,11 @@ function runRecursive() {
 function renderBoard() {
   const board = document.getElementById("board");
   board.innerHTML = "";
-  board.style.width = boardCols * 80 + "px";
-  board.style.height = boardRows * 80 + "px";
+  board.style.width = "800px";
+  board.style.height = "800px";
+
+  const cellWidth = 800 / boardCols;
+  const cellHeight = 800 / boardRows;
 
   for (let row = boardRows; row >= 1; row--) {
     const rowDiv = document.createElement("div");
@@ -142,6 +145,8 @@ function renderBoard() {
       cell.className = "cell";
       cell.id = `cell-${num}`;
       cell.innerText = num;
+      cell.style.width = cellWidth + "px";
+      cell.style.height = cellHeight + "px";
 
       // checkerboard
       let isGray =
