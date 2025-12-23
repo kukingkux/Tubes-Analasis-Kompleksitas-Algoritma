@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #1f1f1f;
+  font-family: "Inter", sans-serif;
+}
+
+.desktop {
+  width: 100vw;
+  height: 100vh;
+  background: #1f1f1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 1440px;
+  height: 1024px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.simulation-container {
+  width: 1142px;
+  height: 1024px;
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  position: absolute;
+  left: 64px;
+  top: 64px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: white;
+  margin: 0;
+}
+
+.board {
+  position: absolute;
+  left: 171px;
+  top: 137px;
+  width: 800px;
+  height: 800px;
+  background: #575757;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 80px;
+  height: 80px;
+}
+
+.board .row:nth-child(odd) .cell:nth-child(odd) {
+  background: #d9d9d9;
+}
+
+.board .row:nth-child(odd) .cell:nth-child(even) {
+  background: #3594ac;
+}
+
+.board .row:nth-child(even) .cell:nth-child(odd) {
+  background: #3594ac;
+}
+
+.board .row:nth-child(even) .cell:nth-child(even) {
+  background: #d9d9d9;
+}
+
+.sidebar {
+  width: 298px;
+  height: 1024px;
+  background: #2e2e2e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 32px;
+  box-sizing: border-box;
+}
+
+.control-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: white;
+  margin: 0;
+}
+
+.btn-randomize {
+  width: 100%;
+  padding: 12px 0;
+  background: linear-gradient(to bottom, #b8de99, #779639);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.09);
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.input-group label {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  margin: 0;
+}
+
+.input-field {
+  height: 43px;
+  background: #484848;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #7b7b7b;
+}
+
+.buttons-run {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.btn-iterative {
+  width: 100%;
+  padding: 12px 0;
+  background: linear-gradient(to bottom, #e6a458, #db7a0a);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.09);
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn-recursive {
+  width: 100%;
+  padding: 12px 0;
+  background: linear-gradient(to bottom, #5e15cc, #390883);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.09);
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.results {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 16px;
+}
