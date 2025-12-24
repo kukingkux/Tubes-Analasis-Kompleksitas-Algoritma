@@ -56,43 +56,11 @@ function simulateRecursive(position = 0) {
 }
 
 document
-  .getElementById("randomize")
-  .addEventListener("click", randomizeObstacles);
-document
   .getElementById("run-iterative")
   .addEventListener("click", runIterative);
 document
   .getElementById("run-recursive")
   .addEventListener("click", runRecursive);
-
-document.getElementById("reset-board").addEventListener("click", resetBoard);
-
-function randomizeObstacles() {
-  const positions = [4, 9, 17, 20, 28, 40, 51, 54, 62, 64, 71, 87, 93, 95, 99];
-  // Shuffle the positions
-  for (let i = positions.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [positions[i], positions[j]] = [positions[j], positions[i]];
-  }
-  // First 8 as snakes, last 7 as ladders
-  for (let i = 0; i < 8; i++) {
-    let pos = positions[i];
-    let end = Math.floor(Math.random() * (pos - 1)) + 1; // 1 to pos-1
-    snakeLadderMap[pos] = end;
-  }
-  for (let i = 8; i < 15; i++) {
-    let pos = positions[i];
-    let end = Math.floor(Math.random() * (99 - pos)) + pos + 1; // pos+1 to 99
-    snakeLadderMap[pos] = end;
-  }
-  document.getElementById("randomize").innerText = "Obstacles randomized.";
-  renderBoard();
-}
-
-function resetBoard() {
-  snakeLadderMap = { ...ORIGINAL_SNAKE_LADDER_MAP };
-  renderBoard();
-}
 
 function runIterative() {
   let totalSteps = 0;
