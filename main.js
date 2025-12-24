@@ -66,26 +66,36 @@ function runIterative() {
   let totalSteps = 0;
   const runs =
     parseInt(document.getElementById("simulation-runs").value) || 1000;
+  const startTime = performance.now();
   for (let i = 0; i < runs; i++) {
     totalSteps += simulateIterative();
   }
+  const endTime = performance.now();
+  const executionTime = endTime - startTime;
   const average = totalSteps / runs;
   document.getElementById(
     "results"
-  ).innerText = `Iterative: Average steps ${average.toFixed(2)}`;
+  ).innerText = `Iterative: Average steps ${average.toFixed(
+    2
+  )}, Time: ${executionTime.toFixed(2)} ms`;
 }
 
 function runRecursive() {
   let totalSteps = 0;
   const runs =
     parseInt(document.getElementById("simulation-runs").value) || 1000;
+  const startTime = performance.now();
   for (let i = 0; i < runs; i++) {
     totalSteps += simulateRecursive();
   }
+  const endTime = performance.now();
+  const executionTime = endTime - startTime;
   const average = totalSteps / runs;
   document.getElementById(
     "results"
-  ).innerText = `Recursive: Average steps ${average.toFixed(2)}`;
+  ).innerText = `Recursive: Average steps ${average.toFixed(
+    2
+  )}, Time: ${executionTime.toFixed(2)} ms`;
 }
 
 function renderBoard() {
