@@ -1,6 +1,6 @@
 const BOARD_SIZE = 100;
 
-let snakeLadderMap = {
+const ORIGINAL_SNAKE_LADDER_MAP = {
   4: 14,
   9: 31,
   17: 7,
@@ -17,6 +17,8 @@ let snakeLadderMap = {
   95: 75,
   99: 78,
 };
+
+let snakeLadderMap = { ...ORIGINAL_SNAKE_LADDER_MAP };
 
 function rollDice() {
   return Math.floor(Math.random() * 6) + 1;
@@ -63,9 +65,7 @@ document
   .getElementById("run-recursive")
   .addEventListener("click", runRecursive);
 
-document
-  .getElementById("start-visualization")
-  .addEventListener("click", startVisualization);
+document.getElementById("reset-board").addEventListener("click", resetBoard);
 
 function randomizeObstacles() {
   const positions = [4, 9, 17, 20, 28, 40, 51, 54, 62, 64, 71, 87, 93, 95, 99];
@@ -89,9 +89,15 @@ function randomizeObstacles() {
   renderBoard();
 }
 
+function resetBoard() {
+  snakeLadderMap = { ...ORIGINAL_SNAKE_LADDER_MAP };
+  renderBoard();
+}
+
 function runIterative() {
   let totalSteps = 0;
-  const runs = 1000;
+  const runs =
+    parseInt(document.getElementById("simulation-runs").value) || 1000;
   for (let i = 0; i < runs; i++) {
     totalSteps += simulateIterative();
   }
@@ -103,7 +109,8 @@ function runIterative() {
 
 function runRecursive() {
   let totalSteps = 0;
-  const runs = 1000;
+  const runs =
+    parseInt(document.getElementById("simulation-runs").value) || 1000;
   for (let i = 0; i < runs; i++) {
     totalSteps += simulateRecursive();
   }

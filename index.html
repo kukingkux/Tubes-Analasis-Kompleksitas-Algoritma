@@ -15,9 +15,27 @@
         </div>
         <div class="sidebar">
           <h2 class="control-title">Control Panel</h2>
-          <button class="btn-randomize" id="randomize">
-            Randomize Rintangan
-          </button>
+          <div class="button-group">
+            <button class="btn-visualize" id="start-visualization">
+              Start Visualization
+            </button>
+            <button class="btn-randomize" id="randomize">
+              Randomize Rintangan
+            </button>
+            <button class="btn-reset" id="reset-board">Reset Board</button>
+          </div>
+          <div class="inputs">
+            <div class="input-group">
+              <label for="simulation-runs">Input Size</label>
+              <input
+                type="number"
+                id="simulation-runs"
+                class="input-field"
+                placeholder="10"
+                value="10"
+              />
+            </div>
+          </div>
           <div class="buttons-run">
             <button class="btn-iterative" id="run-iterative">
               Run Iterative
@@ -25,9 +43,17 @@
             <button class="btn-recursive" id="run-recursive">
               Run Recursive
             </button>
-            <button class="btn-visualize" id="start-visualization">
-              Start Visualization
-            </button>
+          </div>
+          <div class="index-section">
+            <div class="index-title">Tiles Index</div>
+            <div class="index-item">
+              <div class="color-box snake-color"></div>
+              <span>Snake</span>
+            </div>
+            <div class="index-item">
+              <div class="color-box ladder-color"></div>
+              <span>Ladder</span>
+            </div>
           </div>
           <div id="results" class="results"></div>
         </div>

@@ -100,10 +100,17 @@ body {
   margin: 0;
 }
 
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
 .btn-randomize {
   width: 100%;
   padding: 12px 0;
-  background: linear-gradient(to bottom, #b8de99, #779639);
+  background: linear-gradient(to left, #72cc28, #779639);
   border: none;
   border-radius: 8px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.09);
@@ -157,6 +164,54 @@ body {
   width: 100%;
 }
 
+.index-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.index-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  padding-left: 24px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.index-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-left: 24px;
+  height: 28px;
+  width: 258px;
+}
+
+.color-box {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.snake-color {
+  background: #e6a458;
+}
+
+.ladder-color {
+  background: #b8de99;
+}
+
+.index-item span {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+}
+
 .btn-iterative {
   width: 100%;
   padding: 12px 0;
@@ -188,7 +243,21 @@ body {
 .btn-visualize {
   width: 100%;
   padding: 12px 0;
-  background: linear-gradient(to bottom, #3594ac, #1f7a99);
+  background: linear-gradient(to left, #72cc28, #779639);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.09);
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn-reset {
+  width: 100%;
+  padding: 12px 0;
+  background: linear-gradient(to left, #cbccca, #909684);
   border: none;
   border-radius: 8px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.09);
